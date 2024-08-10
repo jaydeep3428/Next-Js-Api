@@ -4,6 +4,7 @@ const getProducts = async () => {
 
   return data.result;
 };
+
 export default async function Page() {
   const products = await getProducts();
   console.log(products);
@@ -26,7 +27,7 @@ export default async function Page() {
         </thead>
         <tbody>
           {products.map((item) => (
-            <tr>
+            <tr key={item.id}>
               <td className="border-2">{item.name}</td>
               <td className="border-2">{item.price}</td>
               <td className="border-2">{item.color}</td>
